@@ -1,0 +1,229 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Variables */
+
+:root {
+	--text-light: hsla(228, 12%, 48%, 1);
+	--text-dark: hsl(212, 21%, 14%);
+	--white: hsl(0, 0%, 100%);
+	--price-text: hsl(158, 36%, 37%);
+	--bg-color: hsl(30, 38%, 92%);
+	--font_main: 'Montserrat', sans-serif;
+	--font_bold: 'Fraunces', sans-serif;
+
+}
+
+#container {
+    width: 100%;
+	height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    background-color: var(--bg-color);
+    align-items: center;
+}
+
+#card {
+    grid-column: 6 / span 6;
+    border-radius: 15px;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(2, 1fr);
+}
+
+#image-container {
+	grid-row: 1 / span 2;
+	grid-column: 1 / span 1;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+	background-image: url("./image-product-desktop.jpg");
+	background-size: cover;
+}
+
+#content-container {
+	/* grid-row: 1 / span 2;
+	grid-column: 2 / span 1; */
+	grid-area: 1 / 2 / span 2 / span 1;
+	background-color: white;
+	padding: 30px;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+#content-container > p {
+	font-family: var(--font_main);
+	color: var(--text-light);
+	font-weight: 500;
+}
+
+#content-container > h1 {
+	font-family: var(--font_bold);
+	font-size: 28px;
+	margin-top: 15px;
+	margin-bottom: 24px;
+	
+}
+
+#sub-title {
+	font-size: 10px;
+	letter-spacing: 4px;
+}
+
+#text {
+	font-size: 12px;
+	line-height: 18px;
+}
+
+#content-container > div {
+	margin-top: 26px;
+	margin-bottom: 26px;
+	display: flex;
+}
+
+#price-new {
+	font-family: var(--font_bold);
+	color: var(--price-text);
+	font-size: 26px;
+}
+
+#price-old {
+	font-family: var(--font_main);
+	font-size: 12px;
+	color: var(--text-light);
+	text-decoration: line-through;
+	margin-left: 12px;
+	align-self: center;
+}
+
+#content-container > button {
+	font-family: var(--font_main);
+	background-color: var(--price-text);
+	font-size: 12px;
+	color: white;
+	width: 100%;
+	padding-bottom: 12px;
+	padding-top: 12px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	border: solid 1px var(--price-text);
+	border-radius: 10px;
+	position: relative;
+	top: 0;
+	transition: all 400ms ease-in-out;
+}
+
+button > img {
+	height: 14px;
+}
+
+#content-container > button:hover {
+	cursor: pointer;
+	-webkit-box-shadow: 0px 4px 12px 4px #B7B7B7; 
+	box-shadow: 0px 4px 12px 4px #B7B7B7;
+	top: -5px;
+}
+
+
+@media screen and (max-width: 1240px){
+	#card {
+		grid-column: 5 / span 8;
+	}
+}
+
+@media screen and (max-width: 940px){
+	#card {
+		grid-column: 4 / span 10;
+	}
+}
+
+@media screen and (max-width: 768px){
+	#card {
+		grid-column: 3 / span 12;
+	}
+}
+@media screen and (max-width: 620px){
+	#card {
+		grid-column: 2 / span 14;
+	}
+}
+
+@media screen and (max-width: 530px) {
+	#card {
+		grid-column: 1 / span 16;
+	}
+}
+
+@media screen and (max-width: 460px){
+
+	#image-container {
+		grid-row: 1 / span 1;
+		grid-column: 1 / span 2;
+		background-image: url("./image-product-mobile.jpg");
+		border-top-right-radius: 10px;
+		border-bottom-left-radius: 0px;
+	}
+
+	#content-container {
+		grid-row: 2 / span 1;
+		grid-column: 1 / span 2;
+		border-top-right-radius: 0px;
+		border-bottom-right-radius: 10px;
+		border-bottom-left-radius: 10px;
+	}
+
+	#card {
+		grid-template-rows: 1.3fr 2fr;
+		grid-column: 2 / span 14;
+	}
+
+	#container {
+		height: auto;
+		padding-top: 15px;
+		padding-bottom: 15px;
+	}
+	
+}
+
